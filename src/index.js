@@ -8,7 +8,6 @@ import Searchtable from './components/searchTable/SearchTable';
 ReactDOM.render(
   <React.StrictMode>
     <Header />
-    {/* <App /> */}
     <Searchtable/>
     <Footer/>
   </React.StrictMode>,
