@@ -1,5 +1,5 @@
 import React from "react";
-import {AppBar,Toolbar,Typography,Container} from '@material-ui/core';
+import { AppBar, Toolbar, Typography, Container } from '@material-ui/core';
 import './Footer.css';
 function Footer(props) {
   return (
