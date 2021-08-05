@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import Header from '../src/components/header/Header';
+import Footer from '../src/components/footer/Footer';
+import Searchtable from './components/searchTable/SearchTable';
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Header />
+    {/* <App /> */}
+    <Searchtable/>
+    <Footer/>
   </React.StrictMode>,
   document.getElementById('root')
 );
