@@ -2,10 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-The heroes had come to a gnome village and they use this awesome application to get the data from the city, filter the gnome's data, view her profile picture and iterate over the pages.
--For Friends and Professions you can hover the text to see long text fields.
--You can Export the current view table to a csv file.
--Columns can be hidden and shown as needed, also the density from the grid can be changed as needed.
+The heroes had come to a gnome village and they use this awesome application to get the data from the city, filter the gnome's data, view her profile picture and iterate over the pages.\
+-For Friends and Professions you can hover the text to see long text fields.\
+-You can Export the current view table to a csv file.\
+-Columns can be hidden and shown as needed, also the density from the grid can be changed as needed.\
 
 -The launch.json configs were uploaded if they are needed to run the app in non-security mode.
 
