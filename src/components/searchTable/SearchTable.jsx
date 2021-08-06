@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Orc from '../api/Orc';
+import Gnomes from '../api/Gnomes';
 import { DataGrid, GridToolbar } from '@material-ui/data-grid';
 import Avatar from '@material-ui/core/Avatar';
 import Paper from "@material-ui/core/Paper";
@@ -127,7 +127,7 @@ function Searchtable(props) {
 
 
   useEffect(() => {
-    Orc.getAll().then((res) => {
+    Gnomes.getAll().then((res) => {
       setdataSource(res);
     })
   }, [])

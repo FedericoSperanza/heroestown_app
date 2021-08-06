@@ -1,6 +1,6 @@
 import API from '.';
 
-export default class Orc {
+export default class Gnomes {
 
     constructor({ id, name, thumbnail, age, weight, height, hair_color, professions, friends }) {
         this.id = id;
@@ -17,6 +17,6 @@ export default class Orc {
     static async getAll() {
         const api = await API();
         const { data } = await api.get('');
-        return data.Brastlewark.map((d) => new Orc(d));
+        return data.Brastlewark.map((d) => new Gnomes(d));
     }
 }
