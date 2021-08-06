@@ -149,7 +149,7 @@ function Searchtable(props) {
 
   return (
     dataSource ?
-      <div style={{ height: 600, width: '100%' }}>
+      <div style={{ height: 600, width: '100%', flexGrow: 1 }}>
         <DataGrid rows={dataSource} columns={columns} pageSize={20}
           components={{
             Toolbar: GridToolbar
