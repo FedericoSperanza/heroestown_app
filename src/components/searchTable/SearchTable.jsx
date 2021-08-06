@@ -54,36 +54,36 @@ function Searchtable(props) {
     const classes = useStyles();
     const [showFullCell, setShowFullCell] = React.useState(false);
     const [showPopper, setShowPopper] = React.useState(false);
-  
+
     const handleMouseEnter = () => {
       const isCurrentlyOverflown = isOverflown(cellValue.current);
       setShowPopper(isCurrentlyOverflown);
       setAnchorEl(cellDiv.current);
       setShowFullCell(true);
     };
-  
+
     const handleMouseLeave = () => {
       setShowFullCell(false);
     };
-  
+
     React.useEffect(() => {
       if (!showFullCell) {
         return undefined;
       }
-  
+
       function handleKeyDown(nativeEvent) {
         if (nativeEvent.key === "Escape" || nativeEvent.key === "Esc") {
           setShowFullCell(false);
         }
       }
-  
+
       document.addEventListener("keydown", handleKeyDown);
-  
+
       return () => {
         document.removeEventListener("keydown", handleKeyDown);
       };
     }, [setShowFullCell, showFullCell]);
-  
+
     return (
       <div
         ref={wrapper}
@@ -123,7 +123,7 @@ function Searchtable(props) {
       </div>
     );
   });
-  
+
 
 
   useEffect(() => {
@@ -131,7 +131,7 @@ function Searchtable(props) {
       setdataSource(res);
     })
   }, [])
-  
+
   function isOverflown(element) {
     return (
       element.scrollHeight > element.clientHeight ||
