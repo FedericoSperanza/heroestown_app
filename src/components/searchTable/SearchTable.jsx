@@ -156,7 +156,8 @@ function Searchtable(props) {
   }
 
   return dataSource.length ? (
-    <div style={{ height: 600, width: "100%", flexGrow: 1 }}>
+    <div style={{display: 'flex',height: 600, width: "100%" }}>
+      <div style={{ flexGrow: 1 }}>
       <DataGrid
         rows={dataSource}
         columns={columns}
@@ -165,6 +166,7 @@ function Searchtable(props) {
           Toolbar: GridToolbar,
         }}
       />
+      </div>
     </div>
   ) : (
     <div style={{ position: "absolute", left: "50%", top: "10%" }}>
