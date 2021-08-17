@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import Gnomes from '../api/Gnomes';
-import { DataGrid, GridToolbar } from '@material-ui/data-grid';
-import Avatar from '@material-ui/core/Avatar';
+import React, { useState, useEffect } from "react";
+import Gnomes from "../api/Gnomes";
+import { DataGrid, GridToolbar } from "@material-ui/data-grid";
+import Avatar from "@material-ui/core/Avatar";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/styles";
 import Typography from "@material-ui/core/Typography";
 import Popper from "@material-ui/core/Popper";
+import loadingSpinner from "../../assets/loadingSpinner.gif";
 function Searchtable(props) {
-
   const [dataSource, setdataSource] = useState([]);
   const useStyles = makeStyles(() => ({
     root: {
@@ -20,30 +20,40 @@ function Searchtable(props) {
       "& .cellValue": {
         whiteSpace: "nowrap",
         overflow: "hidden",
-        textOverflow: "ellipsis"
-      }
-    }
+        textOverflow: "ellipsis",
+      },
+    },
   }));
   const columns = [
     {
-      field: 'thumbnail',
-      headerName: 'Profile',
+      field: "thumbnail",
+      headerName: "Profile",
       width: 200,
       renderCell: (params) => {
         return (
           <div>
             <Avatar alt="Remy Sharp" src={params.value} />
           </div>
-        )
-      }
+        );
+      },
     },
-    { field: 'name', headerName: 'Name', width: 200 },
-    { field: 'age', headerName: 'Age', width: 150 },
-    { field: 'hair_color', headerName: 'Hair Color', width: 150 },
-    { field: 'height', headerName: 'Height', width: 150 },
-    { field: 'weight', headerName: 'Weight', width: 150 },
-    { field: 'friends', headerName: 'Friends', width: 200, renderCell: renderCellExpand },
-    { field: 'professions', headerName: 'Professions', width: 200, renderCell: renderCellExpand },
+    { field: "name", headerName: "Name", width: 200 },
+    { field: "age", headerName: "Age", width: 150 },
+    { field: "hair_color", headerName: "Hair Color", width: 150 },
+    { field: "height", headerName: "Height", width: 150 },
+    { field: "weight", headerName: "Weight", width: 150 },
+    {
+      field: "friends",
+      headerName: "Friends",
+      width: 200,
+      renderCell: renderCellExpand,
+    },
+    {
+      field: "professions",
+      headerName: "Professions",
+      width: 200,
+      renderCell: renderCellExpand,
+    },
   ];
   const GridCellExpand = React.memo(function GridCellExpand(props) {
     const { width, value } = props;
@@ -98,7 +108,7 @@ function Searchtable(props) {
             width,
             display: "block",
             position: "absolute",
-            top: 0
+            top: 0,
           }}
         />
         <div ref={cellValue} className="cellValue">
@@ -124,13 +134,11 @@ function Searchtable(props) {
     );
   });
 
-
-
   useEffect(() => {
     Gnomes.getAll().then((res) => {
       setdataSource(res);
-    })
-  }, [])
+    });
+  }, []);
 
   function isOverflown(element) {
     return (
@@ -147,15 +155,25 @@ function Searchtable(props) {
     );
   }
 
-  return (
-    dataSource ?
-      <div style={{ height: 600, width: '100%', flexGrow: 1 }}>
-        <DataGrid rows={dataSource} columns={columns} pageSize={20}
-          components={{
-            Toolbar: GridToolbar
-          }} />
-      </div>
-      : <div>Loading Data</div>
+  return dataSource.length ? (
+    <div style={{ height: 600, width: "100%", flexGrow: 1 }}>
+      <DataGrid
+        rows={dataSource}
+        columns={columns}
+        pageSize={20}
+        components={{
+          Toolbar: GridToolbar,
+        }}
+      />
+    </div>
+  ) : (
+    <div style={{ position: "absolute", left: "50%", top: "10%" }}>
+      <img
+        src={loadingSpinner}
+        alt="loading..."
+        style={{ height: "100px" }}
+      ></img>
+    </div>
   );
 }
 
