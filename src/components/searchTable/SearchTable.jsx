@@ -16,7 +16,7 @@ function Searchtable(props) {
       width: "100%",
       height: "100%",
       position: "relative",
-      display: "flex",
+      display: "flex",    
       "& .cellValue": {
         whiteSpace: "nowrap",
         overflow: "hidden",
@@ -169,12 +169,14 @@ function Searchtable(props) {
       </div>
     </div>
   ) : (
-    <div style={{ position: "absolute", left: "50%", top: "10%" }}>
+    <div >
+      <div style={{ position: "absolute", left: "50%", top: "10%"}}>
       <img
         src={loadingSpinner}
         alt="loading..."
         style={{ height: "100px" }}
       ></img>
+      </div>
     </div>
   );
 }
